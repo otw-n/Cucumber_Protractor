@@ -5,5 +5,5 @@ Feature: Homepage
 
   Scenario: Visit Homepage
     Given I am on the homepage
-    When I fill in "Soeradj"
-    Then I should see "Hello Soeradj!"
+    #When I fill in "Soeradj"
+    #Then I should see "Hello Soeradj!"

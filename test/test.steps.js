@@ -2,18 +2,21 @@ var angularHomepage = require('./test.page.js');
 
 var steps = function() {
 
-  this.Given(/^I am on the homepage$/, function(callback) {
-    var angularHomepage = new AngularHomepage();
-    angularHomepage.get();
+  this.Given(/^I am on the homepage$/, function() {
+    browser.get('http://otwn.nl/');
+//    var angularHomepage = new AngularHomepage();
+//    AngularHomepage.get();
   });
 
+
   this.When(/^I fill in "([^"]*)"$/, function(callback) {
-    angularHomepage.setName('Soeradj');
-      setTimeout(callback, 1000);
+    element(by.model('yourName')).sendKeys('Soeradj');
+      setTimeout(callback, 10000);
       });
 
   this.Then(/^I should see "([^"]*)"$/, function(callback) {
-    expect(angularHomepage.getGreeting()).toEqual('Hello Soeradj!');
+    element(by.binding('yourName')).getText('Hello Soeradj!')
+//      expect(angularHomepage.getGreeting()).toEqual('Hello Soeradj!');
       result.should.equal(true);
       setTimeout(callback, 1000);
     });
